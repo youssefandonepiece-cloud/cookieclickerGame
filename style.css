@@ -1,0 +1,228 @@
+body {
+    background-color: #ddd;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    height: 100dvh;
+    color: #121212;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    overflow-x: hidden;
+}
+
+#score {
+    color: #121212;
+    font-size: 1.2rem;
+    text-align: center;
+}
+
+#counter {
+    transition: transform 0.18s ease, color 0.18s ease;
+    display: inline-block;
+}
+
+.score-pop {
+    animation: scorePop 0.26s ease;
+}
+
+@keyframes scorePop {
+    0% {
+        transform: scale(1);
+        color: #121212;
+    }
+    30% {
+        transform: scale(1.22);
+        color: #d88d00;
+    }
+    100% {
+        transform: scale(1);
+        color: #121212;
+    }
+}
+
+#clickArea {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.1s ease, filter 0.1s ease;
+    cursor: pointer;
+    user-select: none;
+}
+
+#click {
+    transition: transform 0.12s ease;
+}
+
+#clickArea:active #click {
+    transform: scale(0.96);
+}
+
+#clickArea:hover {
+    filter: drop-shadow(0 0 8px rgba(255, 194, 66, 0.8));
+}
+
+#chips1 img {
+    width: 300px;
+    height: 300px;
+    display: block;
+    animation: cookieFloat 2s ease-in-out infinite;
+    transform-origin: center;
+}
+
+@keyframes cookieFloat {
+    0%,
+    100% {
+        transform: translateY(0) rotate(0deg) scale(1);
+    }
+    50% {
+        transform: translateY(-4px) rotate(2deg) scale(1.02);
+    }
+}
+
+#clickArea:active #chips1 img {
+    animation: cookieBurst 0.18s ease;
+}
+
+@keyframes cookieBurst {
+    0% {
+        transform: scale(1) rotate(0deg);
+    }
+    30% {
+        transform: scale(1.08) rotate(-6deg);
+    }
+    100% {
+        transform: scale(1) rotate(4deg);
+    }
+}
+
+.floating-score {
+    position: fixed;
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #d88d00;
+    pointer-events: none;
+    z-index: 1500;
+    animation: floatUp 0.7s ease forwards;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+@keyframes floatUp {
+    0% {
+        opacity: 0;
+        transform: translate(-50%, 0) scale(0.8);
+    }
+    20% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        transform: translate(-50%, -40px) scale(1.2);
+    }
+}
+
+#btns button {
+    border: #ddd 1px solid;
+    background-color: black;
+    padding: 10px;
+    color: #ddd;
+    cursor: pointer;
+    border-radius: 12px;
+}
+
+#btns button:hover {
+    background-color: #3c3535;
+}
+
+#modals {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.35);
+    z-index: 999;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease;
+}
+
+#modals:not(.hidden) {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.modal-panel {
+    position: relative;
+    background: #f4f2f4;
+    width: min(420px, 80vw);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    transform: translateY(-20px) scale(0.96);
+    opacity: 0;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.modal-panel.visible {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+}
+
+#modalHead {
+    background-color: #f4f2f4;
+    padding: 12px;
+    text-align: center;
+    margin: 0;
+}
+
+#modalBody {
+    text-align: center;
+    margin: 0;
+    background-color: #121212;
+    color: #f4f2f4;
+    padding: 16px;
+}
+
+.modal-message {
+    min-height: 24px;
+    margin-top: 12px;
+    color: #ffb4b4;
+    font-weight: bold;
+}
+
+#modalFooter {
+    background-color: #f4f2f4;
+    padding: 12px;
+    text-align: center;
+}
+
+#modalFooter button {
+    background-color: #121212;
+    color: #f4f2f4;
+    border-radius: 12px;
+    padding: 12px;
+    width: 140px;
+    cursor: pointer;
+    border: none;
+}
+
+#modalFooter button:hover {
+    background-color: #2f2c2c;
+}
+
+.close-modal {
+    position: absolute;
+    top: 10px;
+    right: 12px;
+    background: transparent;
+    border: none;
+    color: #121212;
+    font-size: 2rem;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.hidden {
+    display: none !important;
+}

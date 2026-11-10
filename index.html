@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>cookie clicker game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="score">
+        <h1>your score</h1>
+        <h1 id="counter">0</h1>
+    </div>
+    <div id="clickArea">
+        <div id="click">
+            <div id="chips1">
+                <img src="cookie-chocolate-chip-svgrepo-com.svg" alt="cookies">
+            </div>
+        </div>
+    </div>
+    <div id="btns">
+        <button id="buyAutoClicker">buy auto clicker</button>
+        <button id="grandmaclick">make your grandma help</button>
+    </div>
+    <div id="modals" class="hidden">
+        <div id="modalAutoClicker" class="hidden modal-panel">
+            <button class="close-modal" data-close="auto" aria-label="Close auto clicker modal">×</button>
+            <div id="modalHead">
+                <h1>buy an auto clicker</h1>
+            </div>
+            <div id="modalBody">
+                <h3>buy an auto clicker</h3>
+                <p>it clicks one click every second</p>
+                <p>price: 10 clicks</p>
+                <p class="modal-message" id="autoMessage"></p>
+            </div>
+            <div id="modalFooter">
+                <button id="BuyAutoCLicker">buy</button>
+            </div>
+        </div>
+        <div id="modalGrandMaHelp" class="hidden modal-panel">
+            <button class="close-modal" data-close="grandma" aria-label="Close grandma help modal">×</button>
+            <div id="modalHead">
+                <h1>make Grandma help</h1>
+            </div>
+            <div id="modalBody">
+                <h3>make your grandma helps</h3>
+                <p>grandma helps you and give 10 cookies every 5 seconds</p>
+                <p>price: 100</p>
+                <p class="modal-message" id="grandmaMessage"></p>
+            </div>
+            <div id="modalFooter">
+                <button id="BuyGrandma">buy</button>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
